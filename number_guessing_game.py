@@ -9,11 +9,6 @@ Requirements:
 
 import random # import module
 
-min_number, max_number = 1, 100 # The range of numbers the player will guess
-
-"""Guess_limit: Maximum number of times a player can guess
-Guess_count: loop variable"""
-guess_limit, guess_count = 5, 1
 
 def prompt():
     range_of_numbers = [i for i in range(min_number, max_number + 1)] # Generate 1 list include integers from 1-100
@@ -70,12 +65,12 @@ def round_of_game(secret_number, guess):
 
 def play_again():
     again = input("Do you want to play again ? (Yes/No): ")
-    if again.lower().startswith("no"):
+    if again.lower().startswith("n"):
         print("Thanks for playing.")
-    elif again.lower().startswith("yes"):
+    elif again.lower().startswith("y"):
         play()
     else:
-        print("Only yes or no")
+        print("Only enter 'y' or 'n'")
         play_again()
 
 def play():
@@ -83,6 +78,8 @@ def play():
     print("Welcome to the Number Guessing Game! \n\nI have selected a random number between 1 and 100. \nTry to guess what it is!\n")
 
     # Update global variables when the player wants to play again
+    """Guess_limit: Maximum number of times a player can guess
+    Guess_count: loop variable"""
     global min_number, max_number, guess_limit, guess_count
     min_number, max_number = 1, 100
     guess_limit, guess_count = 5, 1
